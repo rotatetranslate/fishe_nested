@@ -2,6 +2,15 @@ Rails.application.routes.draw do
 
   root 'static_pages#index'
 
+  get 'experiments', to: 'experiments#index'
+
+  resources :scientists do
+    resources :experiments, except: :index do
+      resources :logs, only: [:show, :new, :create]
+    end
+  end
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
