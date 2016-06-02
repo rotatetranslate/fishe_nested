@@ -7,7 +7,7 @@ class ExperimentsController < ApplicationController
   def show
     @experiment = Experiment.find(params[:id])
     @scientist = @experiment.scientist
-    # has many = logs plural
+    # has_many = logs plural
     @logs = @experiment.logs
   end
 
